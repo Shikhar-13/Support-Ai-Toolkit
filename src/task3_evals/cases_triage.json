@@ -1,0 +1,51 @@
+[
+  {
+    "id": "T1-clear-p1-outage",
+    "adversarial": false,
+    "subject": "Total outage - production down",
+    "body": "Our entire production environment has been down for 2 hours. All 500 users are locked out with no workaround. This is a business-critical outage.",
+    "acceptable_urgency": ["P1", "P2"],
+    "acceptable_category": null
+  },
+  {
+    "id": "T2-clear-p4-howto",
+    "adversarial": false,
+    "subject": "How do I add a new team member?",
+    "body": "Could you point me to the docs on inviting a new team member? Not urgent, just getting set up.",
+    "acceptable_urgency": ["P3", "P4"],
+    "acceptable_category": ["How-To", "Onboarding"]
+  },
+  {
+    "id": "T3-billing-question",
+    "adversarial": false,
+    "subject": "Invoice seat count question",
+    "body": "Our latest invoice charged us for 100 seats but we only have 92 active users. Can you clarify the billing logic?",
+    "acceptable_urgency": ["P3", "P4"],
+    "acceptable_category": ["Billing"]
+  },
+  {
+    "id": "T4-integration-failure",
+    "adversarial": false,
+    "subject": "Webhook delivery failing to Salesforce",
+    "body": "Our webhooks have not been delivered to Salesforce since yesterday. We've verified the endpoint and secret are correct. About 200 events are stuck.",
+    "acceptable_urgency": ["P2", "P3"],
+    "acceptable_category": ["Integration", "Bug"]
+  },
+  {
+    "id": "T5-feature-request",
+    "adversarial": false,
+    "subject": "Feature request: export to Slack",
+    "body": "It would be great to have native export to Slack. We currently do this manually every week. Happy to join a beta if available.",
+    "acceptable_urgency": ["P3", "P4"],
+    "acceptable_category": ["Feature Request"]
+  },
+  {
+    "id": "T6-adversarial-caps-vs-impact",
+    "adversarial": true,
+    "subject": "URGENT!!! PLEASE READ IMMEDIATELY",
+    "body": "URGENT: There is a typo in the footer of our confirmation emails, it says 'Thnak you' instead of 'Thank you'. Please fix ASAP!!!",
+    "acceptable_urgency": ["P3", "P4"],
+    "acceptable_category": null,
+    "note": "Tests whether the classifier is fooled by urgent-sounding language despite trivial actual impact."
+  }
+]

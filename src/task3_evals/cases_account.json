@@ -1,0 +1,59 @@
+[
+  {
+    "id": "A1-clear-churn-signal",
+    "adversarial": false,
+    "account": {"account_id": "EVAL-A1", "company": "Eval Corp A1", "plan_tier": "Business"},
+    "tickets": [
+      {"ticket_id": "EVAL-A1-T1", "subject": "SSO broken", "body": "This has been broken for a week and support has not responded. If this is not fixed by Friday we will cancel our contract.", "status": "Open", "satisfaction_score": 1}
+    ],
+    "expected_flagged_ticket_ids": ["EVAL-A1-T1"]
+  },
+  {
+    "id": "A2-no-risk-happy-path",
+    "adversarial": false,
+    "account": {"account_id": "EVAL-A2", "company": "Eval Corp A2", "plan_tier": "Starter"},
+    "tickets": [
+      {"ticket_id": "EVAL-A2-T1", "subject": "Great support experience", "body": "Just wanted to say the export feature works great now, thanks for the quick fix last month.", "status": "Resolved", "satisfaction_score": 5},
+      {"ticket_id": "EVAL-A2-T2", "subject": "Quick question about permissions", "body": "How do I add a teammate to the admin role? All good otherwise.", "status": "Resolved", "satisfaction_score": 4}
+    ],
+    "expected_flagged_ticket_ids": []
+  },
+  {
+    "id": "A3-low-satisfaction-negative-text",
+    "adversarial": false,
+    "account": {"account_id": "EVAL-A3", "company": "Eval Corp A3", "plan_tier": "Enterprise"},
+    "tickets": [
+      {"ticket_id": "EVAL-A3-T1", "subject": "Extremely disappointed", "body": "This is the third time this month we've hit this bug. Our team is losing confidence in the platform and leadership is asking why we're still paying for this.", "status": "Open", "satisfaction_score": 1}
+    ],
+    "expected_flagged_ticket_ids": ["EVAL-A3-T1"]
+  },
+  {
+    "id": "A4-mixed-account-no-false-positive",
+    "adversarial": false,
+    "account": {"account_id": "EVAL-A4", "company": "Eval Corp A4", "plan_tier": "Business"},
+    "tickets": [
+      {"ticket_id": "EVAL-A4-T1", "subject": "Cannot log in, considering switching vendors", "body": "We've been locked out for two days and are seriously evaluating other vendors at this point.", "status": "Open", "satisfaction_score": 1},
+      {"ticket_id": "EVAL-A4-T2", "subject": "Export question", "body": "Just checking if exports support CSV, thanks.", "status": "Resolved", "satisfaction_score": 4},
+      {"ticket_id": "EVAL-A4-T3", "subject": "Password reset help", "body": "Could not find the password reset link, could you send it again? Found it, all set now.", "status": "Resolved", "satisfaction_score": 5}
+    ],
+    "expected_flagged_ticket_ids": ["EVAL-A4-T1"]
+  },
+  {
+    "id": "A5-determinism-check",
+    "adversarial": false,
+    "account": {"account_id": "EVAL-A5", "company": "Eval Corp A5", "plan_tier": "Business"},
+    "tickets": [
+      {"ticket_id": "EVAL-A5-T1", "subject": "Billing question", "body": "We were charged for 20 extra seats, please review.", "status": "Open", "satisfaction_score": 3}
+    ],
+    "expected_flagged_ticket_ids": [],
+    "check_determinism": true
+  },
+  {
+    "id": "A6-adversarial-no-tickets",
+    "adversarial": true,
+    "account": {"account_id": "EVAL-A6", "company": "Eval Corp A6", "plan_tier": "Starter"},
+    "tickets": [],
+    "expected_flagged_ticket_ids": [],
+    "note": "Tests graceful handling of an account with zero tickets in the 90-day window -- incomplete data case."
+  }
+]
